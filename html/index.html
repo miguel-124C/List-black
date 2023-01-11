@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="../css/style.css">
+    <script src="https://kit.fontawesome.com/1852c762de.js" crossorigin="anonymous"></script>
+    <title>Lista negra</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Lista negra</h1>
+        <form class="form-search">
+            <label>
+                <button class="button-search">
+                    <i class="fa-solid fa-magnifying-glass input-i"></i>
+                </button>
+            </label>
+            <input type="search" class="search-enemy" placeholder="Buscar enemigo">
+        </form>
+        <div class="button__bar-options">
+            <i class="fa-solid fa-bars button-bars"></i>
+        </div>
+    </header>   
+    <aside class="navigation-bar">
+        <ul class="options-change">
+            <li class="list-options add">                
+                <div class="option">
+                    Añadir
+                </div> 
+                <i class="fa-solid fa-plus"></i>
+            </li>
+            <li class="list-options delete">                 
+                <div class="option">
+                    Eliminar
+                </div> 
+                <i class="fa-solid fa-trash-can"></i>
+            </li>
+            <li class="list-options search">
+                <div class="option">
+                    Buscar
+                </div> 
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </li>
+            <li class="list-options">
+                <div class="option">
+                    Informacion
+                </div> 
+                <i class="fa-solid fa-info"></i>
+            </li>
+            <li class="list-options">
+                <div class="option">
+                    Editar
+                </div> 
+                <i class="fa-solid fa-percent"></i> 
+            </li>
+            <li class="list-options">
+                <div class="option">
+                    Venganza
+                </div> 
+                <i class="fa-solid fa-bomb"></i>
+            </li>
+        </ul>
+    </aside>
+    <main class="list-black-container">
+        <div class="container-form">
+            <form class="form-set-datos">
+                <input type="text" placeholder="Nombre del enemigo" class="info-enemy name-enemy">
+                <span class="msj-alert alert-name">Ingrese un nombre</span>
+                <textarea class="info-enemy data-enemy" placeholder="Datos del enemigo"></textarea>
+                <span class="msj-alert alert-data">Ingrese los datos</span>
+                <div class="file">
+                    <input type="file" accept=".png" class="set-img">
+                </div>
+                <div class="preview">
+                </div>
+                <span class="msj-alert alert-image">Ingrese imagen del enemigo</span>
+                <input type="submit" class="info-enemy submit">
+            </form>
+        </div>
+    </main>
+
+<script src="../javascript/code.js"></script>
+</body>
+</html>

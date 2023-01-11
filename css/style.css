@@ -1,0 +1,331 @@
+:root{
+    --color-dark: #000;
+    --color-light: #ddd;
+    --color-resaltante: #f82;
+    --color-fondo: #055;
+} 
+
+*{
+    border:0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    resize: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    background: var(--color-light);
+}
+
+.fa-solid{
+    width: 14px;
+    font-size: 30px;
+}
+
+/*Header*/
+.header{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    background:var(--color-dark);
+    height: 80px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 300;
+    transition: top .5s;
+}
+
+.header_move{
+    top: -80px;
+}
+
+.header h1{
+    color: #fff;
+    width: 300px;
+    margin-left: 20px;
+}
+
+.form-search{
+    display: flex;
+    width: 50%;
+}
+
+.form-search label{
+    height: 40px;
+    position: relative;
+}
+
+.button-search{ 
+    position: absolute;
+    width: 50px;
+    left: -50px;
+    height: 100%;
+    background: #444;
+    transition: left .6s;
+}
+
+.input-i{
+    width: 30px;
+    color: white;
+}
+
+.search-enemy{
+    display: flex;
+    width: 50%;
+    height: 40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 1.7em;
+    padding-left: 10px;
+    color: var(--color-fondo);
+    z-index: 100;
+}
+
+.header .search-enemy::placeholder{
+    color: var(--color-fondo);
+}
+
+.button__bar-options{
+    display: flex;
+    align-items: center;
+    width: 50px;
+    cursor: pointer;
+    height: 100%;
+}
+
+/*ASIDE*/
+.navigation-bar{
+    background: var(--color-resaltante);
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: right .6s;
+    z-index: 200;
+}
+
+.open__bar{
+    right: -250px; 
+}
+
+.button-bars{
+    font-size: 2.4em;
+    color: var(--color-resaltante);
+}
+
+.options-change::-webkit-scrollbar{ /*para que no se vea el scroll en chrome*/
+    display: none;
+}
+
+.options-change{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list-options{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 40px 20px;  
+    cursor: pointer;
+    color: var(--color-dark);
+    background: var(--color-resaltante);
+}
+
+.list-options:hover{
+    background: var(--color-dark);
+    border: 5px solid var(--color-light);
+    color: var(--color-light);
+    transition: color .5s;
+}
+
+.option{
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/*MAIN*/
+
+.list-black-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 40px 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/*El formulario*/
+
+.container-form{    
+    position: fixed;
+    z-index: 100;
+    top: 10%;
+    left: 25%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height:80%;
+}
+
+.form-set-datos{
+    width: 90%;
+    height: 100%;
+    background: var(--color-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.msj-alert{
+    display: none;
+    width: 70%;
+    color: #a22;
+}
+
+.info-enemy, .info-enemy::placeholder , .file{
+    background: var(--color-resaltante);
+    color: var(--color-light);
+    border: none;
+    font-size: 1.5em;
+    padding-left: 5px;
+    width: 70%;
+    height: 70px;
+    border-left: 5px solid var(--color-light); 
+}
+
+.data-enemy{
+    font-size: 1.5em;
+}
+
+.file{
+    text-align: center;
+    line-height: 50px;
+}
+
+.preview{
+    width: 50%;
+    height: 230px;
+    text-align: center;
+    background:  var(--color-resaltante);
+    border-left: 5px solid var(--color-light); 
+}
+
+/*CLases añadidas con js*/
+/*CLases del form*/
+.info-enemy::placeholder{
+    opacity: .5;
+    border-left: none;
+}
+
+.style-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*Clases de las lista*/
+.enemy{
+    display: flex;
+    margin: 80px 0 80px 0;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    gap: 50px;
+    transition: all 1s;
+}
+
+.enemy .divlist{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.enemy .enemy-logo{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;    
+    width: 40%;
+    padding: 50px;
+}
+
+.img-enemy{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    transition: transform .6s;
+    border: 2px solid black;
+}
+
+.enemy .img-enemy:hover{
+    transform: scale(1.05);
+    opacity: .7;
+}
+
+.list-item{
+    height: 500px;
+    width: 60%;
+    background: var(--color-fondo);
+    padding: 5px;
+    color: #fff;
+    display: grid;
+    grid-template-rows: repeat(2, 100px 300px );
+    align-items: center;
+    justify-items: center;
+    gap: 10%;
+}
+
+.list-item .info, .list-item h4{
+    width: 80%;
+    height: 100%;
+
+}
+
+.list-item h4{
+    line-height: 100px;
+    color: var(--color-dark);
+    font-size: 5em;
+    text-align: center;
+}
+
+.list-item .info{
+    background: var(--color-light);
+    font-size: 2em;
+}
+
+/*clases para Eliminar una lista*/
+
+.modal-delete{
+    position: absolute;
+    display: none;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .3;
+}
+
+.modal-delete .check-delete{
+    width: 50px;
+    height: 50px;
+}
