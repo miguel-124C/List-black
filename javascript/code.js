@@ -79,11 +79,15 @@ const deleteEnemy=()=>{
     if(arrayEnemys.length > 0){
         const modal = document.querySelectorAll('.modal-delete');//selecciona el elemento modal 
         const del = document.querySelectorAll('.check-click');//selecciona el input a presionar
-        for (m of modal) {
+        console.log(del);
+        openAside();
+        for (m of modal){
             m.style.display= 'flex';
         }
         for (d of del) {
-            d.addEventListener('click',()=>{alert(1)});
+            d.addEventListener('click',()=>{
+                
+            });
         }
     }else{
         alert('no hay nada pa eliminar');
