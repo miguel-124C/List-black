@@ -14,6 +14,7 @@ const infoEnemy = document.querySelector('.data-enemy');//input-info
 const setImage = document.querySelector('.set-img');//input-image
 const preview = document.querySelector('.preview');//se mostrara aqui la previsualización de la img
 const buttonSubmit = document.querySelector('.submit');//envia los datos del formulario
+const buttonTrash = document.querySelector('.trash');//boton para eliminar cantidad de enemigos
 /* ELEMENTOS CREADOS */
 const image = document.createElement('IMG');//nueva img, se alamacena la img de la previzualizacion
 const divList = document.createElement('DIV');//se almacenan todas las listas que creemos
@@ -47,6 +48,7 @@ const addEnemy=()=>{
     openAside();
     header.style.top = "-80px";
     containerForm.style.display = 'flex';
+    moverModalDelete('none')
     addEventListener('keydown',keyEsc);//inicia el evento de apretar la tecla esc
 }
 const addDataEnemy=(name,image,data)=>{//añade los datos a un array y los muestra ene pantalla
@@ -71,24 +73,40 @@ const addDataEnemy=(name,image,data)=>{//añade los datos a un array y los muest
     divList.appendChild(divItem);
     let enemy = [name,image,data];
     arrayEnemys.push(enemy);
+    divItem.classList.add(`${arrayEnemys.length}`);
     console.log(arrayEnemys);
     listBlackContainer.appendChild(divList);
 }
-//elimina un enemigo a la lista
+//elimina n cantidad de enemigos
+const delCantEnemy=()=>{
+    const del = document.querySelectorAll('.check-click');
+    for (d in del) {
+        let num = parseInt(d)
+        if(del[d].checked == true){
+            const enemy = document.querySelector('.enemy');
+            let enemyChildren = enemy.children;
+            const enWillDelete = document.querySelector(`.${num+1}`)
+            console.log(enWillDelete)
+            for(en in enemyChildren){
+                if(d == en)enemyChildren.removeChild(enWillDelete);
+            }
+            //enemy.removeChild(d);
+        }
+    }
+}
+const moverModalDelete=(display)=>{
+    const modal = document.querySelectorAll('.modal-delete');//selecciona el elemento modal 
+    for (m of modal){
+        m.style.display= `${display}`;
+    }
+}
+//salta seccion para eliminar un enemigo
 const deleteEnemy=()=>{
     if(arrayEnemys.length > 0){
-        const modal = document.querySelectorAll('.modal-delete');//selecciona el elemento modal 
-        const del = document.querySelectorAll('.check-click');//selecciona el input a presionar
-        console.log(del);
+        moverModalDelete("flex")
         openAside();
-        for (m of modal){
-            m.style.display= 'flex';
-        }
-        for (d of del) {
-            d.addEventListener('click',()=>{
-                
-            });
-        }
+        buttonTrash.style.display = 'block';
+        buttonTrash.addEventListener('click',delCantEnemy);
     }else{
         alert('no hay nada pa eliminar');
     }

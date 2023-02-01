@@ -329,3 +329,11 @@ body{
     width: 50px;
     height: 50px;
 }
+
+.trash{
+    display: none;
+    position:fixed;
+    right: 50px;
+    bottom: 10px;
+    cursor: pointer;
+}
