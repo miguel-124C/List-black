@@ -80,18 +80,16 @@ const addDataEnemy=(name,image,data)=>{//añade los datos a un array y los muest
 //elimina n cantidad de enemigos
 const delCantEnemy=()=>{
     const del = document.querySelectorAll('.check-click');
-    for (d in del) {
-        let num = parseInt(d)
-        if(del[d].checked == true){
-            const enemy = document.querySelector('.enemy');
-            let enemyChildren = enemy.children;
-            const enWillDelete = document.querySelector(`.${num+1}`)
-            console.log(enWillDelete)
-            for(en in enemyChildren){
-                if(d == en)enemyChildren.removeChild(enWillDelete);
-            }
-            //enemy.removeChild(d);
+    const enemy = document.querySelector('.enemy');
+    let enemyChildren = enemy.children;
+ 
+    for(en of enemyChildren){
+        let c = 0;
+        if(del[c].checked == true){
+        
         }
+        if(en.getAttribute('class').split(' ')[1] == num+1)enemy.removeChild(en);
+        c++;
     }
 }
 const moverModalDelete=(display)=>{
