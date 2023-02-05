@@ -27,6 +27,7 @@ const alertImage = document.querySelector('.alert-image');//alert si no se coloc
 let srcImage = '';//se guarda el src de la img que ingresemos
 let dataEnemy = [];
 let arrayEnemys = [];//array para guardare todos los enemigos
+let arrayIndEnemys = [];
 //abre la barra lateral
 const openAside =()=>{
     asideContainer.classList.toggle('open__bar');
@@ -79,17 +80,13 @@ const addDataEnemy=(name,image,data)=>{//añade los datos a un array y los muest
 }
 //elimina n cantidad de enemigos
 const delCantEnemy=()=>{
-    const del = document.querySelectorAll('.check-click');
     const enemy = document.querySelector('.enemy');
     let enemyChildren = enemy.children;
- 
     for(en of enemyChildren){
-        let c = 0;
-        if(del[c].checked == true){
-        
-        }
-        if(en.getAttribute('class').split(' ')[1] == num+1)enemy.removeChild(en);
-        c++;
+        if(en.lastElementChild.firstElementChild.checked == true){
+            arrayIndEnemys.push(en.getAttribute('class').split(' ')[1]);
+            console.log(arrayIndEnemys);
+        } 
     }
 }
 const moverModalDelete=(display)=>{
