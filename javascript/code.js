@@ -27,7 +27,6 @@ const alertImage = document.querySelector('.alert-image');//alert si no se coloc
 let srcImage = '';//se guarda el src de la img que ingresemos
 let dataEnemy = [];
 let arrayEnemys = [];//array para guardare todos los enemigos
-let arrayIndEnemys = [];
 //abre la barra lateral
 const openAside =()=>{
     asideContainer.classList.toggle('open__bar');
@@ -74,25 +73,37 @@ const addDataEnemy=(name,image,data)=>{//añade los datos a un array y los muest
     divList.appendChild(divItem);
     let enemy = [name,image,data];
     arrayEnemys.push(enemy);
-    divItem.classList.add(`${arrayEnemys.length}`);
-    console.log(arrayEnemys);
+    //divItem.classList.add(`${arrayEnemys.length}`);
     listBlackContainer.appendChild(divList);
+}
+//eliminar los datos del array que almacena los datos de la persona
+const delDataArray=(array)=>{
+    let i = 0;
+    for(el in arrayEnemys){
+        if(parseInt(el + 1) != array[i]){
+           newArray.push(arrayEnemys[el])
+        }else{
+            i++;
+        }
+    }
+    console.log(arrayEnemys);
 }
 //elimina n cantidad de enemigos
 const delCantEnemy=()=>{
     const enemy = document.querySelector('.enemy');
     let enemyChildren = enemy.children;
-    for(en of enemyChildren){
-        if(en.lastElementChild.firstElementChild.checked == true){
-            arrayIndEnemys.push(en.getAttribute('class').split(' ')[1]);
-            console.log(arrayIndEnemys);
-        } 
+    for(en in enemyChildren){
+        if(enemyChildren[en].lastElementChild.firstElementChild.checked == true){
+            enemy.removeChild(enemyChildren[en]);
+            //delDataArray();
+        }
     }
 }
 const moverModalDelete=(display)=>{
     const modal = document.querySelectorAll('.modal-delete');//selecciona el elemento modal 
     for (m of modal){
         m.style.display= `${display}`;
+        m.firstElementChild.checked = false;
     }
 }
 //salta seccion para eliminar un enemigo
